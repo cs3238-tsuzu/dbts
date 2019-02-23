@@ -1,0 +1,24 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/golang:1.11
+        user: root
+    working_directory: /go/src/github.com/cs3238-tsuzu/dbts
+    environment:
+      GO111MODULE: "on"
+      DOCKER_REPO: tsuzu/dbts
+    steps:
+      - checkout
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run:
+          name: Docker build
+          command: |
+            docker build -t $DOCKER_REPO:latest .
+            docker tag $DOCKER_REPO:latest $DOCKER_REPO:$CIRCLE_TAG
+      - run:
+          name: Deploy
+          command: |
+            docker login -u ${DOCKER_USER} -p ${DOCKER_PASS}
+            docker push $DOCKER_REPO
