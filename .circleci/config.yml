@@ -10,6 +10,11 @@ jobs:
       DOCKER_REPO: tsuzu/dbts
     steps:
       - checkout
+      - run: 
+          name: Download submodule
+          command: |
+            git submodule sync
+            git submodule update --init
       - setup_remote_docker:
           docker_layer_caching: true
       - run:
