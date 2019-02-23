@@ -8,7 +8,6 @@ WORKDIR ${DBTS_PATH}
 
 RUN apt-get update && \
     apt-get install -y libpcap0.8-dev && \
-    git submodule update --init --recursive && \
     cd canopus/openssl && \
     ./config && \
     make -j2 && \
