@@ -4,6 +4,7 @@ services:
   main:
     image: tsuzu/dbts
     network_mode: "host"
+    privileged: true
     environment:
       - DASH_BUTTON_IFACE=$DASH_BUTTON_IFACE
       - DASH_BUTTON_DB_MAC=$DASH_BUTTON_DB_MAC

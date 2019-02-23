@@ -21,6 +21,7 @@ jobs:
           name: Docker build
           command: |
             docker build -t $DOCKER_REPO:latest .
+            docker build -t $DOCKER_REPO:golang -f Dockerfile-golang .
       - run:
           name: Deploy
           command: |
