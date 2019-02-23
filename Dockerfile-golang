@@ -12,9 +12,10 @@ RUN apt-get update && \
     cd canopus/openssl && \
     ./config && \
     make -j2 && \
-    touch ../go.mod
-
-RUN go build -o main
-COPY ${DBTS_PATH}/main /bin/main
+    touch ../go.mod && \
+    cd ../.. && \
+    go build -o main && \
+    cp ${DBTS_PATH}/main /bin/main && \
+    rm ${DBTS_PATH}/main
 
 ENTRYPOINT [ "/bin/main" ]
