@@ -81,6 +81,7 @@ func main() {
 	sigch := make(chan os.Signal, 1)
 	signal.Notify(sigch, syscall.SIGTERM, syscall.SIGHUP)
 	clicks := inter.Clicks()
+	prev := time.Now()
 	for {
 		select {
 		case dev, ok := <-clicks:
@@ -88,6 +89,12 @@ func main() {
 				fmt.Println("Shutting down")
 				return
 			}
+			now := time.Now()
+			if now.Sub(prev) < 500*time.Millisecond {
+				prev = now
+				continue
+			}
+			prev = now
 
 			title, body := "Dash Buttonが押されました。", fmt.Sprintf("Dash Buttonが押されました。\nMAC Address: %s\nIP Address: %s\nTime Stamp: %s", dev.HardwareAddr.String(), dev.IP.String(), time.Now().String())
 
