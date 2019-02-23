@@ -1,0 +1,3 @@
+[submodule "canopus"]
+	path = canopus
+	url = https://github.com/zubairhamed/canopus.git

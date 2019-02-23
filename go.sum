@@ -1,0 +1,10 @@
+github.com/barnybug/go-tradfri v0.0.0-20180413184309-db5d64a4feb6 h1:ELj435/JeBdMlxIqpQwxxRtVsIaG2DmeV3xDLKv9EVs=
+github.com/barnybug/go-tradfri v0.0.0-20180413184309-db5d64a4feb6/go.mod h1:A8A6UNQ0mHriTShQu+VQJGyCHjdTvpsk8Lpd+Mzmh6M=
+github.com/google/gopacket v1.1.16 h1:u6Afvia5C5srlLcbTwpHaFW918asLYPxieziOaWwz8M=
+github.com/google/gopacket v1.1.16/go.mod h1:UCLx9mCmAwsVbn6qQl1WIEt2SO7Nd2fD0th1TBAsqBw=
+github.com/mooyoul/go-dash-button v0.0.0-20160614211303-d156a5f9cf33 h1:Q312tzBk9qa3hTNLPw9fZ/fyOUrC4zLUFKnyzSYQS4Q=
+github.com/mooyoul/go-dash-button v0.0.0-20160614211303-d156a5f9cf33/go.mod h1:xU/dZUtMqXZ+CVBr515oaZ2LT+E3rZL3piGkstzUlCM=
+github.com/pkg/errors v0.8.1 h1:iURUrRGxPUNPdy5/HRSm+Yj6okJ6UtLINN0Q9M4+h3I=
+github.com/pkg/errors v0.8.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
+github.com/zubairhamed/canopus v0.0.0-20180207123928-e374f5b1a0f3 h1:QNJWrY+1njV+HzUeAsnJH2TPfQQaf8CJBpg8FH/ql6g=
+github.com/zubairhamed/canopus v0.0.0-20180207123928-e374f5b1a0f3/go.mod h1:8PwBNQD1PHWK7whD9q61YJlhjquyFhtvHWoRxpa5zPc=

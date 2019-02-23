@@ -1,0 +1,10 @@
+version: '3'
+
+services: 
+  main:
+    image: tsuzu/dbts
+    env:
+      - DASH_BUTTON_IFACE=$DASH_BUTTON_IFACE
+      - DASH_BUTTON_DB_MAC=$DASH_BUTTON_DB_MAC
+      - TRADFRI_IP=$TRADFRI_IP
+      - TRADFRI_KEY=$TRADFRI_KEY
