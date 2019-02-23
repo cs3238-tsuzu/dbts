@@ -107,7 +107,33 @@ func main() {
 
 			fmt.Println(groups)
 
-			stat := groups[0].Power != 0 && groups[0].Dim != 0
+			devices, err := client.ListDevices()
+
+			if err != nil {
+				panic(err)
+			}
+
+			d := make(map[int]*tradfri.DeviceDescription)
+
+			for i := range devices {
+				d[devices[i].DeviceID] = devices[i]
+			}
+
+			stat := true
+			for _, id := range groups[0].AccessoryLink.LinkedItems.DeviceIDs {
+				if _, ok := d[id]; !ok {
+					continue
+				}
+
+				if d[id].ApplicationType == 0 {
+					continue
+				}
+
+				for j := range d[id].LightControl {
+					stat = stat && *d[id].LightControl[j].Power != 0
+				}
+			}
+
 			control := tradfri.LightControl{}
 
 			if stat {
