@@ -138,9 +138,7 @@ func main() {
 
 			if stat {
 				p := 0
-				dim := 0
 				control.Power = &p
-				control.Dim = &dim
 			} else {
 				p := 1
 				dim := tradfri.DimMax
