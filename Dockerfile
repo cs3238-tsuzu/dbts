@@ -2,6 +2,7 @@ ARG DBTS_PATH=/go/src/github.com/cs3238-tsuzu/dash-button-tradfri-switch
 
 FROM golang:1.11 AS build
 
+ARG DBTS_PATH
 ENV GO111MODULE=on
 COPY . ${DBTS_PATH}
 WORKDIR ${DBTS_PATH}
