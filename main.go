@@ -107,16 +107,22 @@ func main() {
 
 			fmt.Println(groups)
 
+			stat := groups[0].Power != 0 && groups[0].Dim != 0
 			control := tradfri.LightControl{}
-			p := 1 - groups[0].Power
-			dim := tradfri.DimMax - tradfri.PercentageToDim(100)
 
-			control.Power = &p
-			if dim != 0 {
+			if stat {
+				p := 0
+				dim := 0
+				control.Power = &p
+				control.Dim = &dim
+			} else {
+				p := 1
+				dim := tradfri.DimMax
+				control.Power = &p
 				control.Dim = &dim
 			}
 
-			fmt.Println("trying to toggle light, power:", p != 0)
+			fmt.Println("trying to toggle light ->", *control.Power != 0)
 
 			if err := client.SetGroup(groups[0].GroupID, control); err != nil {
 				fmt.Println(err)
