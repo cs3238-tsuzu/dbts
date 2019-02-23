@@ -8,14 +8,13 @@ COPY . ${DBTS_PATH}
 WORKDIR ${DBTS_PATH}
 
 RUN apt-get update && \
-    apt-get install -y libpcap0.8-dev && \
+    apt-get install -y libpcap0.8-dev libnet1-dev && \
     cd canopus/openssl && \
     ./config && \
     make -j2 && \
     touch ../go.mod && \
     cd ../.. && \
     go build -o main && \
-    cp ${DBTS_PATH}/main /bin/main && \
-    rm ${DBTS_PATH}/main
+    mv ${DBTS_PATH}/main /bin/main
 
 ENTRYPOINT [ "/bin/main" ]

@@ -105,6 +105,8 @@ func main() {
 				continue
 			}
 
+			fmt.Println(groups)
+
 			control := tradfri.LightControl{}
 			p := 1 - groups[0].Power
 			dim := tradfri.DimMax - tradfri.PercentageToDim(100)
