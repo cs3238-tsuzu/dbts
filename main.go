@@ -155,10 +155,10 @@ func main() {
 
 			fmt.Println("trying to toggle light ->", *control.Power != 0)
 
-			if err := client.SetGroup(groups[0].GroupID, control); err != nil {
-				fmt.Println(err)
-			} else {
-				fmt.Println("toggled")
+			for i := range devices {
+				if err := client.SetDevice(devices[i].DeviceID, control); err != nil {
+					fmt.Println(devices[i].DeviceID, control)
+				}
 			}
 
 		case <-sigch:
